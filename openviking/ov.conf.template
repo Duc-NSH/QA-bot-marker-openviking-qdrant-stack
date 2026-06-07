@@ -1,0 +1,55 @@
+{
+    "server": {
+        "host": "0.0.0.0",
+        "port": 1933,
+        "auth_mode": "trusted",
+        "root_api_key": "ait-dev",
+        "_note_root_api_key": "Change root_api_key in production; set OPENVIKING_API_KEY=<new-key> in .env",
+        "cors_origins": ["*"]
+    },
+    "storage": {
+        "workspace": "/app/.openviking/data",
+        "vectordb": {
+            "name": "bctn_msb",
+            "backend": "app.adapters.qdrant.AppQdrantAdapter",
+            "project": "default",
+            "distance_metric": "cosine",
+            "qdrant": {
+                "url": "http://qdrant:6333",
+                "api_key": null,
+                "timeout_seconds": 30
+            }
+        },
+        "agfs": {
+            "backend": "local"
+        }
+    },
+    "embedding": {
+        "dense": {
+            "provider": "ollama",
+            "model": "qwen3-embedding:latest",
+            "api_base": "http://host.docker.internal:11434/v1",
+            "dimension": 4096,
+            "input": "text"
+        },
+        "text_source": "content_only",
+        "max_input_tokens": 4096
+    },
+    "vlm": {
+        "_note": "This block is replaced at runtime by scripts/pre_convert.py. Set GOOGLE_API_KEY for Gemini or OLLAMA_BASE_URL + OLLAMA_VLM_MODEL for Ollama.",
+        "provider": "openai",
+        "model": "",
+        "api_key": "",
+        "api_base": "",
+        "temperature": 0.0,
+        "max_retries": 2
+    },
+    "auto_generate_l0": true,
+    "auto_generate_l1": true,
+    "default_search_mode": "thinking",
+    "default_search_limit": 15,
+    "log": {
+        "level": "INFO",
+        "output": "stdout"
+    }
+}
