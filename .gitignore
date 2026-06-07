@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+openviking/ov.conf
+data/chunks/*.md
+data/chunks/chunk_index.json
+.claude/
+.vscode/

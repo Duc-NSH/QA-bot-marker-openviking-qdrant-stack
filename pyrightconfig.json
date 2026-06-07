@@ -1,0 +1,6 @@
+{
+  "typeCheckingMode": "standard",
+  "pythonVersion": "3.13",
+  "include": ["services", "openviking/adapter"],
+  "exclude": ["**/__pycache__", "**/.venv"]
+}

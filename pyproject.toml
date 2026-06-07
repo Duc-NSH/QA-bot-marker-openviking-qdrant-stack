@@ -1,0 +1,5 @@
+[tool.uv.workspace]
+members = ["services/marker", "services/api", "openviking/adapter"]
+
+[tool.uv]
+dev-dependencies = ["basedpyright>=1.18", "openviking==0.3.24"]
