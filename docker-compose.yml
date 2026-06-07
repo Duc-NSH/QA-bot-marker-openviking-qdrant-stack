@@ -1,0 +1,161 @@
+name: ait-homework
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+volumes:
+  qdrant_data:
+  openviking_data:
+  processed_docs:
+  marker_models:
+
+networks:
+  app_net:
+
+services:
+  traefik:
+    image: traefik:v3
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [app_net]
+    logging: *default-logging
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks: [app_net]
+    healthcheck:
+      test:
+        ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/6333' 2>/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.qdrant.rule=Host(`qdrant.localhost`)
+      - traefik.http.routers.qdrant.entrypoints=web
+      - traefik.http.services.qdrant.loadbalancer.server.port=6333
+    logging: *default-logging
+
+  openviking:
+    build:
+      context: openviking
+      dockerfile: Dockerfile
+    volumes:
+      - openviking_data:/app/.openviking/data
+      - ./openviking/ov.conf:/app/.openviking/ov.conf:ro
+      - processed_docs:/processed_docs:ro
+    networks: [app_net]
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      OPENVIKING_WITH_BOT: "0"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:1933/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.openviking.rule=Host(`openviking.localhost`)
+      - traefik.http.routers.openviking.entrypoints=web
+      - traefik.http.services.openviking.loadbalancer.server.port=1933
+      - traefik.http.middlewares.openviking-ws.headers.customrequestheaders.X-Forwarded-Proto=http
+      - traefik.http.routers.openviking.middlewares=openviking-ws
+    logging: *default-logging
+
+  marker:
+    build:
+      context: services/marker
+      dockerfile: Dockerfile
+    volumes:
+      - ./BCTN_MSB_2024.pdf:/data/BCTN_MSB_2024.pdf:ro
+      - marker_models:/root/.cache
+    shm_size: 4g
+    environment:
+      RECOGNITION_BATCH_SIZE: "1"
+      DETECTOR_BATCH_SIZE: "1"
+      TABLE_REC_BATCH_SIZE: "1"
+      LAYOUT_BATCH_SIZE: "1"
+      OCR_ERROR_BATCH_SIZE: "1"
+      DETECTOR_POSTPROCESSING_CPU_WORKERS: "2"
+      FOUNDATION_MODEL_QUANTIZE: "true"
+      MARKER_PAGE_RANGE: "0-49"
+    networks: [app_net]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8001/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 300s
+    labels:
+      - traefik.enable=false
+    logging: *default-logging
+
+  api:
+    build:
+      context: services/api
+      dockerfile: Dockerfile
+    volumes:
+      - ./BCTN_MSB_2024.pdf:/data/BCTN_MSB_2024.pdf:ro
+      - processed_docs:/processed_docs
+    networks: [app_net]
+    depends_on:
+      openviking:
+        condition: service_healthy
+      marker:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OPENVIKING_URL: http://openviking:1933
+      OPENVIKING_API_KEY: ${OPENVIKING_API_KEY:-ait-dev}
+      MARKER_URL: http://marker:8001
+      PDF_PATH: /data/BCTN_MSB_2024.pdf
+      PROCESSED_DOCS_PATH: /processed_docs
+      CHAT_MODEL: ${CHAT_MODEL:-qwen3:14b}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      QDRANT_URL: http://qdrant:6333
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 120s
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.api.rule=Host(`api.localhost`)
+      - traefik.http.routers.api.entrypoints=web
+      - traefik.http.services.api.loadbalancer.server.port=8000
+    logging: *default-logging
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    networks: [app_net]
+    depends_on:
+      - api
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.frontend.rule=Host(`app.localhost`)
+      - traefik.http.routers.frontend.entrypoints=web
+      - traefik.http.services.frontend.loadbalancer.server.port=3000
+    logging: *default-logging
