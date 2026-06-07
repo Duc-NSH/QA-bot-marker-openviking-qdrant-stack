@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BCTN MSB 2024 — Demo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body { max-width: 860px; }
+    .demo-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: .5rem; }
+    .demo-nav { display: flex; align-items: center; gap: .75rem; }
+    .demo-counter { font-size: .85rem; color: var(--muted); min-width: 4rem; text-align: center; }
+    .btn-nav { padding: .4rem .9rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font-size: .9rem; cursor: pointer; }
+    .btn-nav:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-nav:not(:disabled):hover { background: var(--border); }
+    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .card-question { background: var(--accent); color: #fff; padding: .8rem 1rem; font-size: 1rem; font-weight: 600; }
+    .card-body { padding: 1rem; }
+    .card-elapsed { font-size: .75rem; color: var(--muted); margin-bottom: .75rem; }
+    .card-answer { line-height: 1.7; white-space: pre-wrap; overflow-wrap: break-word; margin-bottom: 1rem; }
+    .no-data { color: var(--muted); font-style: italic; padding: 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="demo-header">
+    <h1>📄 BCTN MSB 2024 — Demo</h1>
+    <div class="demo-nav">
+      <button class="btn-nav" id="prev" disabled>← Trước</button>
+      <span class="demo-counter" id="counter">—</span>
+      <button class="btn-nav" id="next" disabled>Sau →</button>
+    </div>
+  </div>
+
+  <div id="card-area"></div>
+
+  <script>
+    let items = [];
+    let idx = 0;
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+
+    function renderMarkdown(text) {
+      return text
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+        .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+        .replace(/\n/g,"<br/>");
+    }
+
+    function renderCard(item) {
+      const scoreColor = (s) => s > 0.75 ? "var(--score-hi)" : s > 0.5 ? "#e65100" : "var(--score-lo)";
+      const sourcesHtml = (item.sources || []).map(src => {
+        const filename = (src.uri || "").split("/").pop();
+        return `
+        <li class="source-item">
+          <div class="source-meta">
+            <span class="score-badge" style="background:${scoreColor(src.score || 0)}">${((src.score||0)*100).toFixed(0)}%</span>
+            ${src.section_heading ? `<span class="source-section">${escHtml(src.section_heading)}</span>` : ""}
+            ${src.page_number != null ? `<span class="source-page">trang ${src.page_number}</span>` : ""}
+            ${filename ? `<span class="source-file">${escHtml(filename)}</span>` : ""}
+          </div>
+          <p class="source-text">${escHtml(src.text || "")}</p>
+        </li>`;
+      }).join("");
+
+      document.getElementById("card-area").innerHTML = `
+        <div class="card">
+          <div class="card-question">${escHtml(item.question)}</div>
+          <div class="card-body">
+            <div class="card-elapsed">Thời gian: ${item.elapsed_s}s</div>
+            <div class="card-answer">${renderMarkdown(item.answer || "")}</div>
+            ${sourcesHtml ? `
+              <details>
+                <summary>Nguồn tham khảo (${(item.sources||[]).length})</summary>
+                <ul id="sources-list">${sourcesHtml}</ul>
+              </details>` : ""}
+          </div>
+        </div>`;
+
+      document.querySelectorAll(".source-text").forEach(el => {
+        el.addEventListener("click", () => el.classList.toggle("expanded"));
+      });
+    }
+
+    function update() {
+      if (!items.length) return;
+      renderCard(items[idx]);
+      document.getElementById("counter").textContent = `${idx + 1} / ${items.length}`;
+      document.getElementById("prev").disabled = idx === 0;
+      document.getElementById("next").disabled = idx === items.length - 1;
+    }
+
+    document.getElementById("prev").addEventListener("click", () => { if (idx > 0) { idx--; update(); } });
+    document.getElementById("next").addEventListener("click", () => { if (idx < items.length - 1) { idx++; update(); } });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft")  document.getElementById("prev").click();
+      if (e.key === "ArrowRight") document.getElementById("next").click();
+    });
+
+    fetch("demo_data.json")
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        items = data;
+        idx = 0;
+        update();
+      })
+      .catch(() => {
+        document.getElementById("card-area").innerHTML =
+          '<p class="no-data">demo_data.json not found. Run <code>make demo-prep</code> first.</p>';
+      });
+  </script>
+</body>
+</html>

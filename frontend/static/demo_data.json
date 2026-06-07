@@ -1,0 +1,114 @@
+[
+  {
+    "question": "Tổng tài sản của MSB năm 2024 là bao nhiêu?",
+    "answer": "Tổng tài sản của MSB tại ngày 31/12/2024 đạt **320.148 tỷ đồng**, tăng **19,9%** so với năm 2023 (267.006 tỷ đồng) và tăng hơn 1,8 lần so với năm 2020.\n\nCác điểm nổi bật:\n- Động lực chính là tăng trưởng cho vay khách hàng, chiếm hơn 55% tổng tài sản, đạt 176.493 tỷ đồng (+18,25%)\n- Chứng khoán đầu tư tăng mạnh 73,11%, đạt 65.605 tỷ đồng (chủ yếu là Trái phiếu Chính phủ ~65%)\n- Tài sản sinh lời đạt 97% tổng tài sản, tăng 22,05% so với 2023\n- Tốc độ tăng trưởng kép (CAGR 2020–2024) đạt 16,02%, vượt trung bình ngành",
+    "elapsed_s": 2.1,
+    "sources": [
+      {
+        "uri": "viking://resources/bctn/chunk_0020_p006.md",
+        "score": 0.8819,
+        "text": "Tổng tài sản của MSB đạt hơn 320.148 tỷ đồng, tăng hơn 1,8 lần so với 2020 và gần 20% so với năm 2023, đưa mức tăng trưởng kép hàng năm chạm ngưỡng 16,02% với động lực chính đến từ tăng trưởng cho vay khách hàng. Mức tăng trưởng này cao hơn trung bình ngành ngân hàng, chủ yếu đến từ hạn mức tín dụng – chỉ tiêu MSB được cấp bởi NHNN - trong nhóm dẫn đầu ngành. Mảng chứng khoán đầu tư cũng đạt mức tăng trưởng ấn tượng 73,11% so với năm 2023.",
+        "section_heading": "Tổng tài sản và tăng trưởng tín dụng",
+        "page_number": 6
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0027_p006.md",
+        "score": 0.8628,
+        "text": "| Quy mô (tỷ đồng) | 2020 | 2021 | 2022 | 2023 | 2024 |\n|---|---|---|---|---|---|\n| Tổng tài sản | 176.698 | 203.665 | 212.776 | 267.006 | 320.148 |\n| Cho vay khách hàng | 79.341 | 101.563 | 120.644 | 149.145 | 176.493 |\n| Chứng khoán đầu tư | 55.845 | 48.257 | 31.554 | 37.897 | 65.605 |\n| Tiền gửi khách hàng | 87.510 | 94.616 | 117.121 | 132.350 | 154.612 |\n| Vốn chủ sở hữu | 16.875 | 22.038 | 26.654 | 31.298 | 36.818 |",
+        "section_heading": "Kết quả 5 năm (2020–2024)",
+        "page_number": 6
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0078_p058.md",
+        "score": 0.8307,
+        "text": "Năm 2024, MSB đạt được các kết quả kinh doanh khá khả quan: Tổng tài sản đạt trên 320.000 tỷ đồng tăng gần 20% so với năm 2023. Tổng thu nhập thuần từ hoạt động đạt 14.218 tỷ đồng, tăng gần 16% so với 2023. Giá trị vốn hóa tại 31/12/2024 đạt 30.290 tỷ đồng, tăng 16,5% so với cuối năm 2023.",
+        "section_heading": "Đánh giá của Hội đồng Quản trị",
+        "page_number": 58
+      }
+    ]
+  },
+  {
+    "question": "Lợi nhuận trước thuế của MSB năm 2024 là bao nhiêu?",
+    "answer": "Lợi nhuận trước thuế của MSB năm 2024 đạt **6.904 tỷ đồng**, tăng 18,4% so với năm 2023 (5.830 tỷ đồng).\n\nCấu trúc kết quả kinh doanh năm 2024:\n- Tổng thu nhập hoạt động (TOI): **14.218 tỷ đồng** (+15,9% so với 2023)\n- Thu nhập lãi thuần: **10.243 tỷ đồng**\n- Thu nhập ngoài lãi: **3.975 tỷ đồng** (dịch vụ phí: 1.354 tỷ, ngoại hối: 1.055 tỷ)\n- Chi phí hoạt động: **5.230 tỷ đồng** (CIR: 36,75%)\n- Chi phí dự phòng rủi ro: **2.084 tỷ đồng**\n- **Lợi nhuận trước thuế: 6.904 tỷ đồng**\n- Lợi nhuận sau thuế: **5.519 tỷ đồng**\n\nCác chỉ số sinh lời: ROE = 15,97%, ROA = 1,85%, NIM = 3,57%",
+    "elapsed_s": 1.8,
+    "sources": [
+      {
+        "uri": "viking://resources/bctn/chunk_0027_p006.md",
+        "score": 0.8390,
+        "text": "| Kết quả kinh doanh (tỷ đồng) | 2020 | 2021 | 2022 | 2023 | 2024 |\n|---|---|---|---|---|---|\n| Thu nhập lãi thuần | 4.822 | 6.216 | 8.322 | 9.189 | 10.243 |\n| Thu nhập ngoài lãi | 2.361 | 4.372 | 2.371 | 3.070 | 3.975 |\n| Chi phí hoạt động | 3.586 | 3.932 | 4.428 | 4.812 | 5.230 |\n| Chi phí dự phòng | 1.073 | 1.568 | 479 | 1.617 | 2.084 |\n| Lợi nhuận trước thuế | 2.523 | 5.088 | 5.787 | 5.830 | 6.904 |\n| Lợi nhuận sau thuế | 2.011 | 4.035 | 4.616 | 4.644 | 5.519 |\n| ROE | 12,62% | 19,82% | 18,44% | 15,56% | 15,97% |",
+        "section_heading": "Kết quả kinh doanh 5 năm (2020–2024)",
+        "page_number": 6
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0028_p006.md",
+        "score": 0.8368,
+        "text": "Tổng thu nhập hoạt động của MSB năm 2024 đạt 14.218 tỷ đồng, tăng trưởng năm đạt gần 16%, trong đó thu nhập lãi thuần cả năm 2024 đạt hơn 10.243 tỷ đồng, thu nhập ngoài lãi đạt 3.975 tỷ đồng với đóng góp từ hoạt động dịch vụ thu phí hơn 1.354 tỷ, kinh doanh ngoại hối có lãi thuần hơn 1.055 tỷ. Nhờ vào tăng trưởng quy mô tín dụng trong năm, quản lý tốt nợ xấu và cơ cấu nguồn vốn chi phí thấp, MSB duy trì được NIM ổn định ở mức 3,57%.",
+        "section_heading": "Tổng thu nhập hoạt động",
+        "page_number": 6
+      }
+    ]
+  },
+  {
+    "question": "Vốn chủ sở hữu của MSB năm 2024 là bao nhiêu?",
+    "answer": "Vốn chủ sở hữu của MSB tại ngày 31/12/2024 đạt **36.818 tỷ đồng**, tăng **17,64%** so với năm 2023 (31.298 tỷ đồng).\n\nCác điểm nổi bật về vốn:\n- **Vốn điều lệ**: 26.000 tỷ đồng (tăng từ 20.000 tỷ đồng năm 2023, +30%)\n- Tăng vốn thực hiện qua phát hành cổ phiếu trả cổ tức với tỷ lệ 30%\n- Tỷ lệ vốn chủ sở hữu/Tổng tài sản: 11,50%\n- Hệ số an toàn vốn (CAR): **12,31%** (vượt chuẩn Basel II)\n- CAR cấp 1: 12,81%\n- Giá trị vốn hóa thị trường tại 31/12/2024: 30.290 tỷ đồng (+16,5%)",
+    "elapsed_s": 1.9,
+    "sources": [
+      {
+        "uri": "viking://resources/bctn/chunk_0027_p006.md",
+        "score": 0.8556,
+        "text": "Vốn chủ sở hữu: 36.818 tỷ đồng (2024), tăng từ 31.298 tỷ (2023). Vốn điều lệ: 26.000 tỷ đồng (2024), tăng từ 20.000 tỷ (2023). CAR: 12,31% | CAR cấp 1: 12,81% | Vốn chủ sở hữu/Tổng tài sản: 11,50%. ROE: 15,97% | ROA: 1,85%.",
+        "section_heading": "Hệ số an toàn vốn và khả năng sinh lời",
+        "page_number": 6
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0028_p006.md",
+        "score": 0.8445,
+        "text": "Năm 2024, MSB đã tăng vốn thành công lên mốc 26.000 tỷ đồng, thông qua phát hành cổ tức trả cổ phiếu với tỷ lệ 30%, đưa tổng vốn chủ sở hữu đạt hơn 36.818 tỷ đồng, tăng 17,64% so với năm 2023. Việc tăng vốn điều lệ thành công trong năm 2024 sẽ hỗ trợ MSB đạt được các mục tiêu trong hoạt động ngân hàng và nâng cao năng lực cạnh tranh.",
+        "section_heading": "Nguồn vốn và tăng vốn điều lệ",
+        "page_number": 6
+      }
+    ]
+  },
+  {
+    "question": "Tỷ lệ nợ xấu (NPL) của MSB năm 2024 là bao nhiêu?",
+    "answer": "Tỷ lệ nợ xấu (NPL) riêng lẻ của MSB năm 2024 là **1,83%**, cải thiện so với mức **1,94%** năm 2023.\n\nBức tranh chất lượng tài sản qua các năm:\n| Năm | 2020 | 2021 | 2022 | 2023 | 2024 |\n|-----|------|------|------|------|------|\n| NPL | 1,62% | 1,15% | 1,21% | 1,94% | **1,83%** |\n\nMSB kiểm soát nợ xấu thông qua:\n- Tập trung tín dụng vào khách hàng truyền thống với lịch sử tín dụng tốt\n- Đẩy mạnh tín dụng có tài sản đảm bảo\n- Áp dụng quy trình thẩm định chặt chẽ và giám sát sau giải ngân\n- Thanh lý hoàn toàn tài sản gán nợ là tàu biển trong năm 2024 (giảm từ 1.115 tỷ xuống còn 59 tỷ đồng)\n- Chi phí dự phòng rủi ro năm 2024: 2.084 tỷ đồng",
+    "elapsed_s": 2.0,
+    "sources": [
+      {
+        "uri": "viking://resources/bctn/chunk_0027_p006.md",
+        "score": 0.8660,
+        "text": "| Chất lượng tài sản | 2020 | 2021 | 2022 | 2023 | 2024 |\n|---|---|---|---|---|---|\n| Tỷ lệ nợ xấu (NPL riêng lẻ) | 1,62% | 1,15% | 1,21% | 1,94% | 1,83% |\n\nMSB đẩy mạnh cấp tín dụng cho các khoản vay có tài sản đảm bảo, áp dụng quy trình thẩm định chặt chẽ. Ngân hàng đã thanh lý hết tài sản gán nợ là tàu biển trong năm 2024, đưa số dư về khoảng 59 tỷ đồng so với mức 1.115 tỷ của năm trước.",
+        "section_heading": "Chất lượng tài sản",
+        "page_number": 6
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0028_p006.md",
+        "score": 0.8276,
+        "text": "Nhờ vào tăng trưởng quy mô tín dụng trong năm, quản lý tốt nợ xấu và cơ cấu nguồn vốn chi phí thấp, nên mặc dù thực hiện nhiều đợt giảm lãi suất cho vay ưu đãi khách hàng theo định hướng của Chính phủ, MSB vẫn duy trì được tỷ lệ NIM ổn định. Chi phí dự phòng rủi ro năm 2024 đạt 2.084 tỷ đồng để đảm bảo an toàn hoạt động.",
+        "section_heading": "Tổng thu nhập hoạt động và quản lý rủi ro",
+        "page_number": 6
+      }
+    ]
+  },
+  {
+    "question": "MSB có bao nhiêu chi nhánh và phòng giao dịch năm 2024?",
+    "answer": "Tính đến ngày 31/12/2024, mạng lưới hoạt động của MSB bao gồm:\n- **1 Hội sở chính**\n- **260 Chi nhánh và Phòng giao dịch**\n- **281 ATM** và **7 máy STM**\n- Hiện diện tại **51 tỉnh thành** trên toàn quốc\n\nMSB phục vụ hơn **6 triệu khách hàng** (cá nhân và tổ chức), với **1 triệu khách hàng mới** được tiếp cận trong năm 2024. Ngân hàng áp dụng mô hình \"bank in bank\" với 4 mảng chuyên doanh: Ngân hàng Bán lẻ, Ngân hàng Doanh nghiệp, Ngân hàng Định chế tài chính và Ngân hàng Quản lý tín dụng.",
+    "elapsed_s": 1.5,
+    "sources": [
+      {
+        "uri": "viking://resources/bctn/chunk_0115_p082.md",
+        "score": 0.8436,
+        "text": "Tính đến 31/12/2024, mạng lưới hoạt động của MSB trải rộng 51 tỉnh thành trên toàn quốc, bao gồm 1 Hội sở chính và 260 Chi nhánh, Phòng giao dịch, 281 ATM và 7 máy STM.",
+        "section_heading": "Mạng lưới hoạt động",
+        "page_number": 82
+      },
+      {
+        "uri": "viking://resources/bctn/chunk_0061_p030.md",
+        "score": 0.7694,
+        "text": "Với 1 triệu khách hàng mới trong năm 2024, tệp khách hàng hơn 6 triệu bao gồm cá nhân và tổ chức của MSB đều khá hài lòng với các dịch vụ, sản phẩm và quy trình phê duyệt sản phẩm của ngân hàng. Tổng cho vay khách hàng năm 2024 của MSB đạt 176.493 tỷ đồng, phân bổ cho tệp khách hàng cá nhân và SME gần 70%.",
+        "section_heading": "Gắn kết với các bên liên quan",
+        "page_number": 30
+      }
+    ]
+  }
+]
