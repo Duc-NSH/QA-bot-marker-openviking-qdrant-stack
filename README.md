@@ -1,5 +1,9 @@
 # AIT Homework — RAG Q&A over MSB Annual Report 2024
 
+**Author:** Sy-Hong-Duc Nguyen &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/ducnsh/) &nbsp;|&nbsp; [Google Scholar](https://ducnsh.short.gy/my-google-scholar) &nbsp;|&nbsp; [ducnsh.hust@gmail.com](mailto:ducnsh.hust@gmail.com) &nbsp;|&nbsp; +84 355 984 259
+
+---
+
 A Retrieval-Augmented Generation (RAG) system that answers questions about the BCTN MSB 2024 annual report in Vietnamese. The user types a question; the system retrieves relevant passages from the PDF, then streams a grounded answer via Gemini 2.5 Flash.
 
 ---
@@ -240,16 +244,3 @@ Detailed architecture, configuration, and operational notes for each service:
 | OpenViking (embedding + retrieval) | [docs/services/openviking.md](docs/services/openviking.md) |
 | Qdrant (vector database) | [docs/services/qdrant.md](docs/services/qdrant.md) |
 | Marker (PDF OCR) | [docs/services/marker.md](docs/services/marker.md) |
-
----
-
-## Author
-
-**Sy-Hong-Duc Nguyen**
-
-| | |
-|---|---|
-| Email | [ducnsh.hust@gmail.com](mailto:ducnsh.hust@gmail.com) |
-| Phone | +84 355 984 259 |
-| LinkedIn | [linkedin.com/in/ducnsh](https://www.linkedin.com/in/ducnsh/) |
-| Google Scholar | [ducnsh.short.gy/my-google-scholar](https://ducnsh.short.gy/my-google-scholar) |
