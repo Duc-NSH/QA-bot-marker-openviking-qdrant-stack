@@ -240,3 +240,16 @@ Detailed architecture, configuration, and operational notes for each service:
 | OpenViking (embedding + retrieval) | [docs/services/openviking.md](docs/services/openviking.md) |
 | Qdrant (vector database) | [docs/services/qdrant.md](docs/services/qdrant.md) |
 | Marker (PDF OCR) | [docs/services/marker.md](docs/services/marker.md) |
+
+---
+
+## Author
+
+**Sy-Hong-Duc Nguyen**
+
+| | |
+|---|---|
+| Email | [ducnsh.hust@gmail.com](mailto:ducnsh.hust@gmail.com) |
+| Phone | +84 355 984 259 |
+| LinkedIn | [linkedin.com/in/ducnsh](https://www.linkedin.com/in/ducnsh/) |
+| Google Scholar | [ducnsh.short.gy/my-google-scholar](https://ducnsh.short.gy/my-google-scholar) |
