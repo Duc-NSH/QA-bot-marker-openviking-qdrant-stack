@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BCTN MSB 2024 — Q&A</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📄 BCTN MSB 2024 — Hỏi &amp; Đáp</h1>
+    <span id="status" class="status checking">đang kiểm tra…</span>
+  </header>
+  <main>
+    <form id="form">
+      <input id="question" type="text" placeholder="Đặt câu hỏi về báo cáo thường niên…" autocomplete="off" disabled/>
+      <button id="submit" type="submit" disabled>Hỏi</button>
+    </form>
+    <section id="answer-section" hidden>
+      <h2>Trả lời</h2>
+      <div id="answer"></div>
+    </section>
+    <section id="sources-section" hidden>
+      <details id="sources-details">
+        <summary id="sources-summary">Nguồn tham khảo</summary>
+        <ul id="sources-list"></ul>
+      </details>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
